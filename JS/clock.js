@@ -6,7 +6,7 @@ radius = radius;
 setInterval(drawClock, 1000);
 
 function drawClock() {
-    
+    ctx.imageSmoothingEnabled=true;
     drawFace(ctx, radius);
     drawNumbers(ctx, radius);
     drawTime(ctx, radius);
@@ -63,11 +63,9 @@ function drawTime(ctx,radius){
     ctx.arc(0, 0, radius*0.03, 0, 2*Math.PI);
     ctx.fillStyle = 'white';
     ctx.fill();
-
 }
 
 function drawHand(ctx, pos, length, width,color) {
-    
     ctx.beginPath();
     ctx.lineWidth = width;
     ctx.lineCap = "round";
@@ -76,8 +74,5 @@ function drawHand(ctx, pos, length, width,color) {
     ctx.lineTo(0, -length);
     ctx.strokeStyle = color;
     ctx.stroke();
-    ctx.closePath();
-    ctx.restore();
     ctx.rotate(-pos);
-    
 }
